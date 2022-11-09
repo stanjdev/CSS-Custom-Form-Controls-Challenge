@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form Elements</title>
+
+		<style>
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: azure;
+      }
+
+      form {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        background-color: seashell;
+        border-radius: 20px;
+        box-shadow: 5px 5px 20px 0.1px gray;
+      }
+
+      form > h1:first-of-type {
+        background-color: ghostwhite;
+        padding: 1.5rem;
+        border-radius: 25px;
+        width: fit-content;
+        box-shadow: 5px 5px 20px 0.1px gray;
+        position: relative;
+      }
+
+      form > h1:first-of-type::before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-width: 30px;
+        border-style: solid;
+        border-color: rgb(0, 156, 222) transparent transparent transparent;
+        right: 40px;
+        bottom: -30px;
+        transform: rotate(135deg);
+      }
+
+      /* NAME INPUT */
+      form > input:first-of-type {
+        background-color: ghostwhite;
+        padding: 1.5rem;
+        border-radius: 25px;
+        font-size: 1.5rem;
+        border-width: 0.1rem;
+        position: relative;
+      }
+
+      form > input:first-of-type::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-width: 30px;
+        border-style: solid;
+        border-color: rgb(0, 156, 222) transparent transparent transparent;
+        right: 60px;
+        bottom: -30px;
+        transform: rotate(135deg);
+      }
+
+
+      /* CHECKBOXES */
+
+      form > p {
+        display: flex;
+        align-items: center;
+        width: 130px;
+        justify-content: space-between;
+      }
+
+      input[type=checkbox] {
+        display: none;
+      }
+
+      input[type=checkbox] + label.switch {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+      }
+
+      input[type=checkbox] + label.switch::before {
+        content: "";
+        width: 50px;
+        height: 30px;
+        background-color: #ddd;
+        display: inline-block;
+        border-radius: 30px;
+        position: relative;
+        left: 0;
+        transition: 300ms;
+        margin-right: 0.5rem;
+      }
+
+      input[type=checkbox] + label.switch::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: #fff;
+        left: 2px;
+        top: 2px;
+        transition: 300ms;
+      }
+
+      input[type=checkbox]:checked + label.switch::after {
+        left: 22px;
+        transform: rotateY(180deg) skewX(180deg);
+      }
+
+      input[type=checkbox]:checked + label.switch::before {
+        background-color: rgb(14, 156, 188);
+        transform: skewX(-180deg);
+      }
+
+      input[type=checkbox]:active + label.switch::after {
+        transform: scale(0.7);
+      }
+
+      input[type=checkbox]:hover + label.switch::before {
+        transform: scale(1.1);
+      }
+
+
+      /* RADIO BUTTONS */
+      input[type=radio] {
+        display: none;
+      }
+
+      input[type=radio] + label.radio {
+        position: relative;
+        padding-left: 32px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+      }
+
+      input[type=radio] + label.radio::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border: 2px solid;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        transition: 300ms;
+        background-color: ghostwhite;
+      }
+
+      input[type=radio] + label.radio::after {
+        content: "";
+        width: 1px;
+        height: 1px;
+        background-color: transparent;
+        border-radius: 50%;
+        position: absolute;
+        left: 12.5px;
+        transition: 300ms;
+      }
+
+      input[type=radio]:hover + label.radio::before {
+        transform: scale(1.2)
+      }
+
+      input[type=radio]:active + label.radio::before {
+        transform: scale(0.5)
+      }
+
+      input[type=radio]:checked + label.radio::before {
+        border-color: tomato;
+        transform: rotateY(-180deg) skewX(-180deg);
+      }
+
+      input[type=radio]:checked + label.radio::after {
+        background-color: tomato;
+        transform: scale(18) rotateY(180deg) skewX(180deg);
+      }
+
+
+		</style>
+	</head>
+	<body>
+
+		<form>
+			<h1>Personality Assessment</h1>
+
+			<h2>Name</h2>
+
+			<input type="text">
+
+			<h2>Pet preferences</h2>
+      <input type="checkbox" id="canine">
+      <label class="switch" for="canine">Canine</label>
+
+      <input type="checkbox" id="feline">
+      <label class="switch" for="feline">Feline</label>
+
+      <input type="checkbox" id="pscine">
+      <label class="switch" for="pscine">Pscine</label>
+
+			<h2>Shoe Style</h2>
+			<input type="radio" id="vans" name="choice">
+			<label class="radio" for="vans">Vans</label>
+
+			<input type="radio" id="converse" name="choice">
+			<label class="radio" for="converse">Converse</label>
+
+			<input type="radio" id="nike" name="choice">
+			<label class="radio" for="nike">Nike</label>
+		</form>
+
+	</body>
+</html>
